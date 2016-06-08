@@ -1,0 +1,81 @@
+# Push and pop directories on directory stack
+alias pu='pushd'
+alias po='popd'
+
+# Basic directory operations
+alias ...='cd ../..'
+alias -- -='cd -'
+
+# Super user
+alias _='sudo'
+alias please='sudo'
+
+alias g='grep -in'
+
+# Show history
+alias history='fc -l 1'
+
+# List direcory contents
+alias lsa='ls -lah'
+alias l='ls -lA1'
+alias ll='ls -l'
+alias la='ls -lA'
+alias sl=ls # often screw this up
+
+alias afind='ack-grep -il'
+
+# Aliases for certificate generation
+alias generate_rsa_key="openssl genrsa -des3 -out server.key 2048"
+alias strip_passphrase_from_key="openssl rsa -in server.key -out server.key"
+alias generate_csr="openssl req -new -key server.key -out server.csr"
+alias generate_certificate_signing_request="generate_rsa_key && strip_passphrase_from_key && generate_csr"
+
+# Tmux
+alias tm="tmuxStart"
+
+function tmuxStart()
+{
+    if which tmux 2>&1 >/dev/null; then
+      test -z "$TMUX" && (tmux attach || tmux new-session)
+    fi
+}
+
+alias gll="git log --oneline --decorate --all --graph"
+
+# git
+
+alias gitcolor="git config --global color.diff true"
+alias be="bundle exec"
+alias st="git status"
+alias co="git checkout"
+alias ci="git commit -a -m"
+cm() { ci "$@" ;}
+alias br="git branch"
+alias diff="git diff"
+alias tree='git log --graph --pretty=format":%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset"'
+alias amend="git commit --amend -C HEAD"
+alias undo="git reset --soft HEAD^"
+alias log='git log --pretty=format:"%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]" --decorate --date=short'
+alias pullbranch="git pull --rebase origin"
+pull() { pullbranch "$@" ;}
+alias pushbranch="git push origin"
+push() { pushbranch "$@" ;}
+alias fluent_s="fluentd -c config/fluent.conf"
+alias no_proxy="export HTTP_PROXY= export http_proxy="
+alias es="elasticsearch --config=/Users/marekbi/Projects/homebrew/opt/elasticsearch/config/elasticsearch.yml"
+
+
+# docker
+
+alias rm_d_containers="docker ps -a -q |xargs docker rm"
+alias rm_d_images="docker images -q -a |xargs docker rmi"
+
+alias docker_login="docker login https://docker.sqexeu.com"
+alias docker_build="docker build -t livewire-$(git rev-parse HEAD) ."
+# user pass is
+# devgo-build-docker pHcFsv7e5DK75Cz
+
+# postgres sql
+alias post_start="postgres -D /Users/marekbi/Projects/homebrew/var/postgres"
+
+

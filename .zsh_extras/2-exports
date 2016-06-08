@@ -1,0 +1,31 @@
+# hack to shut homebrew up
+export PATH=/Users/marekbi/Projects/homebrew/bin:/usr/bin:./bin:./script:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Use Clang as default compiler
+export CC=clang
+export CFLAGS=-Qunused-arguments
+export CPPFLAGS=-Qunused-arguments
+
+# Set home page for Lynx
+export WWW_HOME=http://www.google.com/
+
+# Add Google depot tools
+# export PATH=$PATH:Z/git/external/depot_tools
+
+# Fix compiler library for homebrew
+export LDFLAGS="$LDFLAGS -L/Users/marekbi/Projects/homebrew/lib"
+
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+export HTTP_PROXY=http://marekbi:En!xpolik9@eurprx01:8080
+export http_proxy=http://marekbi:En!xpolik9@eurprx01:8080
+export HTTPS_PROXY=http://marekbi:En!xpolik9@eurprx01:8080
+export https_proxy=http://marekbi:En!xpolik9@eurprx01:8080
+export no_proxy="localhost,127.0.0.1,192.168.59.103"
+export NO_PROXY=$no_proxy
+
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/marekbi/.boot2docker/certs/boot2docker-vm
