@@ -19,10 +19,10 @@ export LDFLAGS="$LDFLAGS -L/Users/marekbi/Projects/homebrew/lib"
 
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-export HTTP_PROXY=http://marekbi:En!xpolik9@eurprx01:8080
-export http_proxy=http://marekbi:En!xpolik9@eurprx01:8080
-export HTTPS_PROXY=http://marekbi:En!xpolik9@eurprx01:8080
-export https_proxy=http://marekbi:En!xpolik9@eurprx01:8080
+export HTTP_PROXY=
+export http_proxy=
+export HTTPS_PROXY=
+export https_proxy=
 export no_proxy="localhost,127.0.0.1,192.168.59.103"
 export NO_PROXY=$no_proxy
 
